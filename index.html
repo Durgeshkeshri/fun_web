@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flexbox Navigation Bar with Header</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Original styles for larger screens */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            border: 2px solid rgb(12, 15, 31);
+        }
+
+        /* Original styles for larger screens */
+        .navbar a {
+            text-decoration: none;
+            color: white;
+            margin: 0 15px;
+            padding: 10px;
+            transition: background-color 0.3s, color 0.3s;
+            border: 2px solid transparent;
+            /* Add a border to the anchor elements */
+        }
+
+        /* Add a hover effect on anchor elements */
+        .navbar a:hover {
+            background-color: white;
+            color: #333;
+            /* Change text color on hover */
+            border-color: #333;
+            /* Change border color on hover */
+        }
+
+        .navbar a:active {
+            background-color: white;
+            color: #333;
+            border-color: #333;
+            /* Change border color for the active link */
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .navbar .menu {
+            display: flex;
+            align-items: center;
+        }
+
+
+        /* Media query for responsiveness on small screens */
+        @media screen and (max-width: 768px) {
+            .navbar {
+                flex-direction: column;
+                /* Stack items vertically */
+                padding: 10px;
+                text-align: center;
+            }
+            .navbar .menu {
+            display: flex;
+            align-items: center;
+        }
+
+            .navbar .logo {
+                margin-bottom: 20px;
+                /* Add spacing between logo and links */
+            }
+
+            .navbar a {
+                margin: 10px 0;
+                /* Add vertical margin to links */
+            }
+        }
+
+
+        /* Original styles for larger screens */
+        .frame {
+            border: 5px solid #333;
+            padding: 10px;
+            display: inline-block;
+        }
+
+        .elon-musk-img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Media query for responsiveness on small screens */
+        @media screen and (max-width: 768px) {
+            .frame {
+                margin-top: 15%;
+                /* Add top margin to create space below the navigation bar */
+            }
+
+            .frame,
+            .elon-musk-img {
+                width: 100%;
+                /* Make the frame and image width 100% for responsiveness */
+                display: block;
+                /* Change display to block to ensure full width */
+                padding: 0;
+                /* Remove padding to use full width */
+            }
+        }
+
+
+        .additional-content {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .quote-container {
+            border: 2px double #333;
+            padding: 20px;
+            text-align: center;
+            margin: 20px auto;
+            max-width: 100%;
+        }
+
+        .quote-text {
+            font-size: 18px;
+            font-style: italic;
+            color: #333;
+        }
+
+        .quote-author {
+            font-size: 14px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        /* Original styles for larger screens */
+        .bookmarks {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            gap: 10px;
+        }
+
+        .bookmarks a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px;
+            text-align: center;
+            border: 2px solid transparent;
+            transition: border-color 0.3s;
+        }
+
+        .bookmarks a:hover {
+            border-color: white;
+        }
+
+        /* Media query for responsiveness */
+        @media screen and (max-width: 768px) {
+            .bookmarks {
+                display: flex;
+                /* Change to flex layout for smaller screens */
+                flex-direction: column;
+                /* Display links in a column */
+                align-items: center;
+                /* Center align the links */
+            }
+
+            .bookmarks a {
+                margin: 5px 0;
+                /* Add margin to separate links */
+                width: auto;
+                /* Reset width to auto for full width */
+            }
+        }
+
+
+        /* Style for biography sections */
+        .section {
+            padding: 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .section-content {
+            font-size: 16px;
+            line-height: 1.5;
+            color: #555;
+        }
+
+        /* Original styles for larger screens */
+        .header-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        /* Media query for responsiveness */
+        @media screen and (max-width: 768px) {
+            .header-text {
+                font-size: 24px;
+                /* Decrease font size on smaller screens */
+                margin-bottom: 10px;
+                /* Adjust spacing for smaller screens */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <div class="logo">Logo</div>
+        <div class="menu">
+            <a href="#">Home</a>
+            <a href="#">Blog</a>
+            <a href="#">Search</a>
+            <a href="#">About</a>
+            <!-- Dropdown Menu -->
+        </div>
+    </div>
+    <div class="header-box">
+        <div class="header-text">Welcome to the Entrepreneur Blog</div>
+        <div class="frame">
+            <img src="https://1.bp.blogspot.com/-pRFf4OdrzDQ/YROZYWXsIFI/AAAAAAAANAU/J2wUBrY_Ea08rKGIHbxYXLvpsRiBSGDtACPcBGAYYCw/s1920/getty_1130598318_401437.jpg"
+                alt="Elon Musk" class="elon-musk-img">
+        </div>
+        <div class="additional-content">
+            <div class="quote-container">
+                <p class="quote-text">
+                    "When something is important enough, You do it even if the odds are not in your favor."
+                </p>
+                <p class="quote-author">- Elon Musk</p>
+            </div>
+        </div>
+    </div>
+    <div class="bookmarks">
+        <a href="#introduction">Introduction</a>
+        <a href="#education">Education</a>
+        <a href="#companies">Companies</a>
+        <a href="#skills">Skills</a>
+        <a href="#networth">Net Worth</a>
+    </div>
+
+    <div class="section" id="introduction">
+        <h2 class="section-title">Introduction</h2>
+        <p class="section-content">
+            Elon Musk is a visionary entrepreneur known for his work in the tech and space exploration industries. He
+            was born on June 28, 1971, in Pretoria, South Africa. Musk is renowned for his ambitious projects, including
+            electric cars, rocket development, and neural interface technology.
+        </p>
+    </div>
+
+    <div class="section" id="education">
+        <h2 class="section-title">Education</h2>
+        <p class="section-content">
+            Musk attended Pretoria Boys High School and later moved to Canada to attend Queen's University. He
+            transferred to the University of Pennsylvania, where he earned two bachelor's degrees in physics and
+            economics. Musk continued his education at Stanford University but dropped out after just two days to pursue
+            his entrepreneurial aspirations.
+        </p>
+    </div>
+
+    <div class="section" id="companies">
+        <h2 class="section-title">Companies</h2>
+        <p class="section-content">
+            Elon Musk co-founded several successful companies, including Tesla, SpaceX, Neuralink, and The Boring
+            Company. These companies have had a significant impact on the electric vehicle, space exploration, and
+            transportation industries. Tesla, for instance, has revolutionized the electric car market, while SpaceX
+            aims to make space travel more accessible.
+        </p>
+    </div>
+
+    <div class="section" id="skills">
+        <h2 class="section-title">Skills</h2>
+        <p class="section-content">
+            Musk is known for his strong technical and engineering skills. He has a deep understanding of aerospace
+            engineering, electric vehicles, and renewable energy systems. His ability to innovate and solve complex
+            technical challenges has driven the success of his companies.
+        </p>
+    </div>
+
+    <div class="section" id="networth">
+        <h2 class="section-title">Net Worth</h2>
+        <p class="section-content">
+            As of 2023, Elon Musk's net worth is estimated to be over $200 billion, making him one of the
+            richest individuals in the world. His wealth primarily comes from his ownership stakes in Tesla and SpaceX,
+            both of which have seen substantial growth in recent years.
+        </p>
+    </div>
+</body>
+
+</html>
